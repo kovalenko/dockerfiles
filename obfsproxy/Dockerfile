@@ -2,10 +2,10 @@ FROM alpine
 MAINTAINER AK <andrew.kovalenko@glera-games.com>
 
 RUN set -xe \
-    && apk add --no-cache build-base curl python python-dev \
-    && curl -sSL https://bootstrap.pypa.io/get-pip.py | python \
+    && apk add --update --no-cache build-base python3 py3-pip \
+    && ln -sf python3 /usr/bin/python \
     && pip install --no-cache-dir obfsproxy \
-    && apk del build-base curl python-dev
+    && apk del build-base
 
 ENV LOG_MIN_SEVERITY info
 ENV DATA_DIR /var/lib/obfsproxy
