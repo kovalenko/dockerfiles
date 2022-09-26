@@ -4,7 +4,7 @@ MAINTAINER AK <andrew.kovalenko@glera-games.com>
 RUN set -xe \
     && apk add --update --no-cache build-base python3 py3-pip \
     && ln -sf python3 /usr/bin/python \
-    && pip install --no-cache-dir obfsproxy \
+    && python3 -m pip install --no-cache-dir -e git+https://github.com/kovalenko/obfsproxy \
     && apk del build-base
 
 ENV LOG_MIN_SEVERITY info
