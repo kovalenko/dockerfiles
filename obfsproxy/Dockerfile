@@ -7,7 +7,7 @@ RUN set -xe \
     && python3 -m pip install --no-cache-dir -e git+https://github.com/kovalenko/obfsproxy#egg=obfsproxy \
     && apk del build-base git python3-dev
 
-ENV LOG_MIN_SEVERITY info
+ENV LOG_MIN_SEVERITY debug
 ENV DATA_DIR /var/lib/obfsproxy
 ENV PASSWORD XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ENV DEST_ADDR localhost
