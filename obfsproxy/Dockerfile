@@ -2,10 +2,10 @@ FROM alpine
 MAINTAINER AK <andrew.kovalenko@glera-games.com>
 
 RUN set -xe \
-    && apk add --update --no-cache build-base python3 py3-pip \
+    && apk add --update --no-cache build-base python3 py3-pip git \
     && ln -sf python3 /usr/bin/python \
     && python3 -m pip install --no-cache-dir -e git+https://github.com/kovalenko/obfsproxy#egg=obfsproxy-0.2.13 \
-    && apk del build-base
+    && apk del build-base git
 
 ENV LOG_MIN_SEVERITY info
 ENV DATA_DIR /var/lib/obfsproxy
